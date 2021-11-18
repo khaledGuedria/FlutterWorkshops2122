@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ProductInfo extends StatelessWidget {
-  final String _image;
-  final String _title;
-  final int _price;
+  String _image;
+  String _title;
+  int _price;
 
-  const ProductInfo(this._image, this._title, this._price, {Key? key}) : super(key: key);
+  ProductInfo(this._image, this._title, this._price, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

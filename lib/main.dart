@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'G-Store ESPRIT',
-      home: SignIn(),
-      //home: Signup(),
+      //home: SignIn(),
+      home: Signup(),
       //home: NewHome(),
       //home: Home(),
       /* home: ProductDetails("assets/images/dmc5.jpg", 

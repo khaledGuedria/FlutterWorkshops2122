@@ -32,23 +32,15 @@ class _NewHomeState extends State<NewHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('G-Store Esprit'),),
-      body: Column(
-        children: [
-    
-          Row(
-            children: [
-              GridViewItem(games[0].image, games[0].title),
-              Expanded(child: GridViewItem(games[1].image, games[1].title))
-            ],
-          ),
-          Row(
-            children: [
-              GridViewItem(games[2].image, games[2].title),
-              Expanded(child: GridViewItem(games[3].image, games[3].title)),
-            ],
-          )
-        ],
-      ),
+      body: GridView.builder(
+        itemCount: games.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+        mainAxisSpacing: 5,
+        mainAxisExtent: 155,
+        crossAxisSpacing: 5), 
+        itemBuilder: (context, index){
+          return GridViewItem(games[index].image, games[index].title);
+        })
     );
   }
 }
@@ -71,6 +63,7 @@ class GridViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: 120,
       width: 215,
       child: Card(
         child: Padding(

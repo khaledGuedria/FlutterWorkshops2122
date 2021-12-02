@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workshop_sim4/forgot_password.dart';
 
 class SignIn extends StatelessWidget {
 
@@ -51,7 +52,7 @@ class SignIn extends StatelessWidget {
 
               },
               style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.red)),
-              child: const Text("Mot de passe oublié ?"),  
+              child: const Text("Créer un compte"),  
               ),
           ),
           Container(
@@ -59,9 +60,16 @@ class SignIn extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Pas encore de compte ?"),
+                Text("Mot de passe oublié ?"),
                 SizedBox(width: 10,),
-                Text("S'inscrire", style: TextStyle(color: Colors.blue),)
+                GestureDetector(
+                  onTap: () {
+                    /* Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                      return ForgotPassword();
+                    })); */
+                    Navigator.pushNamed(context, '/forgot');
+                  },
+                  child: Text("Cliquez ici", style: TextStyle(color: Colors.blue),))
               ],
             )
           )

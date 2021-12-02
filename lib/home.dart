@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:workshop_sim4/custom_drawer.dart';
 import 'product_info.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
 
   @override
   _HomeState createState() => _HomeState();
@@ -30,14 +32,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("G-Store ESPRIT"),
-      ),
       body: ListView.builder(
         itemCount: games.length,
         itemBuilder: (context, index) {
         return ProductInfo(games[index].image, games[index].title, games[index].price);
-      },)
+      },),
     );
   }
 }

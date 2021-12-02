@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:workshop_sim4/bottom_nav_page.dart';
+import 'package:workshop_sim4/forgot_password.dart';
 import 'package:workshop_sim4/new_home.dart';
+import 'package:workshop_sim4/panier.dart';
 import 'package:workshop_sim4/signin.dart';
+import 'package:workshop_sim4/tab_nav_bar.dart';
 import 'signup.dart';
 import 'product_details.dart';
 import 'home.dart';
@@ -15,23 +19,45 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'G-Store ESPRIT',
-      home: SignIn(),
-      //home: Signup(),
-      //home: NewHome(),
-      //home: Home(),
-      /* home: ProductDetails("assets/images/dmc5.jpg", 
-      "Devil May Cry 5",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
-      "sed do eiusmod tempor incididunt ut"
-      "labore et dolore magna aliqua. Ut enim ad minim veniam, "
-      "quis nostrud exercitation ullamco laboris nisi ut "
-      "aliquip ex ea commodo consequat. Duis aute irure dolor "
-      "in reprehenderit in voluptate velit esse cillum dolore "
-      "eu fugiat nulla pariatur. Excepteur sint occaecat "
-      "cupidatat non proident, sunt in culpa qui officia "
-      "deserunt mollit anim id est laborum.", 
-      200, 
-      3000) */);
+      title: 'G-Store ESPRIT', 
+      routes: {
+      '/': (BuildContext context) {
+        return MyTabbar();
+      },
+      '/bottom': (BuildContext context) {
+        return BottomNavPage();
+      },
+      '/details': (BuildContext context) {
+        return ProductDetails(
+            "assets/images/dmc5.jpg",
+            "Devil May Cry 5",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                "sed do eiusmod tempor incididunt ut"
+                "labore et dolore magna aliqua. Ut enim ad minim veniam, "
+                "quis nostrud exercitation ullamco laboris nisi ut "
+                "aliquip ex ea commodo consequat. Duis aute irure dolor "
+                "in reprehenderit in voluptate velit esse cillum dolore "
+                "eu fugiat nulla pariatur. Excepteur sint occaecat "
+                "cupidatat non proident, sunt in culpa qui officia "
+                "deserunt mollit anim id est laborum.",
+            200,
+            3000);
+      },
+      '/forgot': (BuildContext context) {
+        return ForgotPassword();
+      },
+      '/grid': (BuildContext context) {
+        return NewHome();
+      },
+      '/panier': (BuildContext context) {
+        return Panier();
+      },
+      '/signin': (BuildContext context) {
+        return SignIn();
+      },
+      '/signup': (BuildContext context) {
+        return Signup();
+      },
+    });
   }
 }

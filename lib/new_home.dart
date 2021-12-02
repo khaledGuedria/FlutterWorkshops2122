@@ -31,10 +31,8 @@ class _NewHomeState extends State<NewHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('G-Store Esprit'),),
       body: Column(
         children: [
-    
           Row(
             children: [
               GridViewItem(games[0].image, games[0].title),

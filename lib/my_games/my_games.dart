@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'my_game_info.dart';
 import '../home/home.dart';
 
@@ -24,9 +23,9 @@ class _MyGamesState extends State<MyGames> {
 
   @override
   void initState() {
-    _games.add(GameData("Devil May Cry 5", "assets/images/dmc5.jpg",  _description, 200, 3000));
+/*     _games.add(GameData("Devil May Cry 5", "assets/images/dmc5.jpg",  _description, 200, 3000));
     _games.add(GameData("Resident Evil VIII", "assets/images/re8.jpg",  _description, 200, 3000));
-    _games.add(GameData("Need For Speed Heat", "assets/images/nfs.jpg",  _description, 100, 3000));
+    _games.add(GameData("Need For Speed Heat", "assets/images/nfs.jpg",  _description, 100, 3000)); */
     super.initState();
   }
 

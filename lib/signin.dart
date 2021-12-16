@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'reset_password.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
@@ -11,11 +11,21 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
+
+  //var
   late String? _username;
   late String? _password;
-
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
+  //actions
+  Future<void> insertSharedPrefs(String id) async {
+    await SharedPreferences.getInstance().then((prefs){
+      prefs.setString('username', _username!);
+      prefs.setString('id', id);
+    });
+  }
+
+  //build
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,9 +106,10 @@ class _SigninState extends State<Signin> {
                     http.post(Uri.http(_baseUrl, '/user/signin'), headers: headers, body: json.encode(userData)).then((http.Response response){
 
                       if (response.statusCode == 200) {
-
-                        Navigator.pushReplacementNamed(context, "/home/navTab");
-
+                        Map<String, dynamic> res = json.decode(response.body);
+                        var userId = res['_id'];
+                        insertSharedPrefs(userId).then((value) => Navigator.pushReplacementNamed(context, "/home/navTab"));
+                        
                       } else if(response.statusCode == 401) {
 
                         showDialog(context: context, builder: (context) {

@@ -18,7 +18,7 @@ class ElementInfo extends StatelessWidget {
             const Icon(Icons.restore_from_trash_rounded, size: 50,),
             Container(
               margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-              child: Image.asset(_image, width: 155, height: 58),
+              child: Image.network("http://localhost:9090/img/$_image", width: 155),
             ),
             Text(_price.toString() + " TND", textScaleFactor: 2,),
           ],

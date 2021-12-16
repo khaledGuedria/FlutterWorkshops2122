@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
     http.Response response = await http.get(Uri.http(_baseUrl, "/game"));
     List<dynamic> gamesFromServer = json.decode(response.body);
     for (var item in gamesFromServer) {
-      _games.add(GameData(item['title'], item['image'],
+      _games.add(GameData(item['_id'], item['title'], item['image'],
           item['description'], item['price'], item['quantity']));
     }
 
@@ -47,6 +47,7 @@ class _HomeState extends State<Home> {
             itemCount: _games.length,
             itemBuilder: (context, index) {
             return ProductInfo(
+            _games[index].id,
             _games[index].image,
             _games[index].title,
             _games[index].description,
@@ -72,13 +73,14 @@ class _HomeState extends State<Home> {
       },
     ); */
 class GameData {
+  final String id;
   final String title;
   final String image;
   final String description;
   final int price;
   final int quantity;
 
-  GameData(this.title, this.image, this.description, this.price, this.quantity);
+  GameData(this.id, this.title, this.image, this.description, this.price, this.quantity);
 
   @override
   String toString() {

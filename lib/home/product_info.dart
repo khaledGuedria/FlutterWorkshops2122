@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../product_details.dart';
 
 class ProductInfo extends StatelessWidget {
+  final String _id;
   final String _image;
   final String _title;
   final String _description;
@@ -10,7 +11,7 @@ class ProductInfo extends StatelessWidget {
   final int _quantity;
 
   const ProductInfo(
-      this._image, this._title, this._description, this._price, this._quantity);
+      this._id, this._image, this._title, this._description, this._price, this._quantity);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class ProductInfo extends StatelessWidget {
         onTap: () {
           Navigator.push(context, MaterialPageRoute(
             builder: (BuildContext context) {
-              return ProductDetails(_image, _title, _description, _price, _quantity);
+              return ProductDetails(_id, _image, _title, _description, _price, _quantity);
             },
           ));
         },
